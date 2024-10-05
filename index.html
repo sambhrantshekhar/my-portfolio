@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Sambhrant</title>
+  </head>
+  <body>
+
+    <section id="splash-container">
+      <div id="splash-text">
+        <span style="color: rgb(177, 174, 174);">Hey there! I am Sambhrant Shekhar</span>
+        <section id="typing-container">
+          <span>I am interested in <span id="typing-text"></span></span>
+        </section>
+
+
+        <section id="connection-container">
+          <span>Connections:</span>
+          <div id="connection-links">
+            <a href="https://www.linkedin.com/in/sambhrantshekhar/" target="_blank">
+              <img src="/assets/linkedin.svg" alt="linkedin" />
+            </a>
+            <a href="https://github.com/sambhrantshekhar" target="_blank">
+              <img src="/assets/github.svg" alt="github" />
+            </a>
+            <a href="mailto:sambhrantshekhar@gmail.com" target="_blank">
+              <img src="/assets/mail.svg" alt="email" />
+            </a>
+          </div>
+        </section>
+      </div>
+
+    <section id="interests-container">
+      <div>
+        <div class="interest-header">Programming</div>
+        <span style="text-align: justify">
+          My curiousity behind how everything on a device works has made me very keen about knowing more and more about programming and development. 
+          
+        </span>
+      </div>
+      <div class="line"></div>
+      <div>
+        <div class="interest-header">Aviation</div>
+        <span style="text-align: justify">
+          The first flight was made in 1903 and humans stepped on moon in 1969. Since childhood, I have been forever fascinated by planes, the 
+          physics and the computer systems that make flight possible are something that really make me curious.
+          I also spend considerable amount of my free time learning and flying aircrafts in Microsoft Flight Simulator 
+        </span>
+      </div>
+      <div class="line"></div>
+      <div>
+        <div class="interest-header">Photography</div>
+        <span style="text-align: justify">
+          There's something captivating about capturing the delicate details of a flower,
+           the vastness of a landscape, or the play of light filtering through trees. 
+           Capturing the beauty of nature in a still shot is not possible but I try to get it as close as I can.
+
+        </span>
+      </div>
+    </section>
+
+    <section id="projects-container">
+      <span>Projects</span>
+
+      <div id="projects">
+        <div>
+          <div class="project-title">Rax Discord Bot</div>
+          <span>
+            Built a Discord moderation bot that performed basic functions like delete messages, kick and ban members, etc. It also had a feature 
+            which returned image from an emoji in a given server.
+          </span>
+          <div class="project-details">
+            <a href="https://github.com/sambhrantshekhar/Rax1.0" target="_blank">Github</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-title">This website</div>
+          <span>
+            Started working on my portfolio website just recently and you can see how it looks right now.
+          </span>
+          <div class="project-details">
+            <a href="">Do nothing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <span><b>Sambhrant Shekhar</b></span>
+      <span>@ VIT Chennai</span>
+    </footer>
+  <script>
+    const typingElement = document.getElementById("typing-text");
+    const typeArray = [
+      "Programming",
+      "Aviation",
+      "Photography",
+    ];
+
+    let index = 0; 
+    let isAdding = true; 
+    let typeIndex = 0;
+
+    function playAnim() {
+      setTimeout(
+
+        function () {
+          typingElement.innerText = typeArray[typeIndex].slice(0, index);
+
+          if (isAdding) {
+            if (index >= typeArray[typeIndex].length) {
+              isAdding = false;
+              setTimeout(function () {
+                playAnim();
+              }, 600);
+
+              return;
+
+            } else {
+              index++;
+            }
+
+          } else {
+            if (index === 0) {
+              isAdding = true;
+              typeIndex++;
+              if (typeIndex >= typeArray.length) {
+                typeIndex = 0;
+              }
+
+            } else {
+              index--;
+            }
+          }
+          playAnim();
+        },
+        100
+      );
+    }
+
+    playAnim();
+  </script>
+  </body>
+</html>
